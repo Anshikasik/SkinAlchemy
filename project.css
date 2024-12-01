@@ -13,7 +13,9 @@ body {
 }
 
 .navbar {
+  width: 100vw;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
