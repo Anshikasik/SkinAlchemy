@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skin Type Details</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        background-color: rgb(252, 209, 216);
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2px 2rem;
+      }
+
+      #description {
+        margin: 20px 0;
+        padding: 20px;
+        border: 2px solid #000;
+        border-radius: 10px;
+      }
+      #description img {
+        position: absolute;
+        right: 65px;
+        width: 34%;
+        height: 41%;
+      }
+      h2 {
+        color: #333;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+        background-color: #753d3d;
+        font-size: 20px;
+        height: 3rem;
+        padding: 0 30px;
+        padding-top: 15px;
+        border-radius: 20px;
+        font-weight: bold;
+      }
+      a:hover {
+        text-decoration: none;
+        color: #753d3d;
+        background-color: white;
+        border: 1px solid #753d3d;
+        transition: all 0.1s ease-in;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Skin Type Description</h1>
+      <a href="index.html">Home</a>
+    </div>
+    <div id="description">
+      <p>Loading...</p>
+    </div>
+
+    <script>
+      // Expanded skin type descriptions
+      const descriptions = {
+        oily: `
+        <h2>Oily Skin</h2>
+        <p>Oily skin is characterized by overactive sebaceous glands that produce excess sebum, leading to a shiny or greasy appearance. People with oily skin often struggle with enlarged pores, blackheads, whiteheads, and acne.</p>
+        <h3>Common Issues:</h3>
+        <img src="img/oily1.jpg">
+                <ul>
+                    <li>Frequent breakouts</li>
+                    <li>Clogged pores</li>
+                    <li>Makeup not lasting long</li>
+                </ul>
+                <h3>Tips for Care:</h3>
+                <ul>
+                    <li>Use gentle, gel-based cleansers to remove excess oil.</li>
+                    <li>Incorporate lightweight, oil-free moisturizers.</li>
+                    <li>Exfoliate regularly to unclog pores.</li>
+                    <li>Use non-comedogenic sunscreen.</li>
+                </ul>
+            `,
+        dry: `
+                <h2>Dry Skin</h2>
+                <p>Dry skin lacks moisture and natural oils, leading to a rough, flaky, or tight texture. It can feel itchy and look dull if not properly hydrated.</p>
+                <h3>Common Issues:</h3>
+                <img src="img/dry1.jpg">
+                <ul>
+                    <li>Flakiness and peeling</li>
+                    <li>Fine lines due to dehydration</li>
+                    <li>Itchiness or irritation</li>
+                </ul>
+                <h3>Tips for Care:</h3>
+                <ul>
+                    <li>Use cream-based or hydrating cleansers.</li>
+                    <li>Apply rich, emollient moisturizers to lock in hydration.</li>
+                    <li>Incorporate hydrating ingredients like hyaluronic acid or glycerin.</li>
+                    <li>Avoid hot water for cleansing.</li>
+                </ul>
+            `,
+        combination: `
+                <h2>Combination Skin</h2>
+                <p>Combination skin has both oily and dry areas, often with an oily T-zone (forehead, nose, chin) and drier cheeks. It requires a balanced approach to skin care.</p>
+                <h3>Common Issues:</h3>
+                <img src="img/clay.jpeg">
+                <ul>
+                    <li>Shiny T-zone with dry patches elsewhere</li>
+                    <li>Difficulty finding suitable products</li>
+                    <li>Occasional breakouts in oily areas</li>
+                </ul>
+                <h3>Tips for Care:</h3>
+                <ul>
+                    <li>Use a gentle, pH-balanced cleanser.</li>
+                    <li>Apply lightweight moisturizers on the T-zone and richer creams on drier areas.</li>
+                    <li>Spot-treat oily areas with mattifying products.</li>
+                    <li>Use face masks targeted for specific areas (e.g., clay for T-zone, hydration for cheeks).</li>
+                </ul>
+            `,
+        sensitive: `
+                <h2>Sensitive Skin</h2>
+                <p>Sensitive skin is prone to redness, irritation, and reactions to products or environmental factors. It often feels itchy or uncomfortable when exposed to harsh ingredients.</p>
+                <h3>Common Issues:</h3>
+                <img src="img/aloevera.jpg">
+                <ul>
+                    <li>Redness and blotchiness</li>
+                    <li>Burning or stinging sensations</li>
+                    <li>Allergic reactions to skincare products</li>
+                </ul>
+                <h3>Tips for Care:</h3>
+                <ul>
+                    <li>Use fragrance-free and hypoallergenic products.</li>
+                    <li>Avoid alcohol-based toners and exfoliants.</li>
+                    <li>Patch-test new products before use.</li>
+                    <li>Incorporate calming ingredients like aloe vera or chamomile.</li>
+                </ul>
+            `,
+        normal: `
+                <h2>Normal Skin</h2>
+                <p>Normal skin is well-balanced, with no major concerns like excessive oiliness, dryness, or sensitivity. It typically appears healthy, smooth, and even-toned.</p>
+                <h3>Common Issues:</h3>
+                <img src="img/normal1.jpeg" alt="normal">
+                <ul>
+                    <li>Occasional dryness or oiliness.</li>
+                    <li>Maintaining balance with changing seasons.</li>
+                    <li>Losing glow and Ageing.</li>
+                </ul>
+                <h3>Tips for Care:</h3>
+                <ul>
+                    <li>Maintain a consistent skincare routine with gentle products.</li>
+                    <li>Use lightweight moisturizers to keep the skin hydrated.</li>
+                    <li>Protect your skin with broad-spectrum sunscreen daily.</li>
+                    <li>Exfoliate 1–2 times a week for a glowing complexion.</li>
+                </ul>
+            `,
+        acne: `
+                <h2>Acne-Prone Skin</h2>
+                <p>Acne-prone skin is more likely to develop pimples, blackheads, and other forms of acne due to clogged pores, excess oil, or hormonal changes.</p>
+                <h3>Common Issues:</h3>
+                <img src="img/acne1.webp">
+                <ul>
+                    <li>Frequent breakouts and blemishes</li>
+                    <li>Post-acne marks or scars</li>
+                    <li>Inflamed or red skin</li>
+                </ul>
+                <h3>Tips for Care:</h3>
+                <ul>
+                    <li>Use salicylic acid or benzoyl peroxide to treat acne.</li>
+                    <li>Cleanse your face twice daily to remove dirt and oil.</li>
+                    <li>Avoid picking or popping pimples.</li>
+                    <li>Incorporate soothing ingredients like niacinamide to reduce redness.</li>
+                </ul>
+            `,
+      };
+
+      // Get the 'type' parameter from the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const skinType = urlParams.get("type");
+
+      // Display the corresponding description
+      const descriptionDiv = document.getElementById("description");
+      if (descriptions[skinType]) {
+        descriptionDiv.innerHTML = descriptions[skinType];
+      } else {
+        descriptionDiv.innerHTML = `<p>Invalid skin type. Please go back and select a valid option.</p>`;
+      }
+    </script>
+  </body>
+</html>

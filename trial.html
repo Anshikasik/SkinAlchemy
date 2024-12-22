@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skin Types</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 200px;
+        height: 250px;
+        border: 2px solid #000;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: #f9f9f9;
+        transition: transform 0.3s;
+      }
+      .block:hover {
+        transform: scale(1.05);
+        background-color: #eaeaea;
+      }
+      .block img {
+        width: 100%;
+        height: 150px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      .block p {
+        margin: 10px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Skin Types</h1>
+    <div class="container">
+      <div class="block" onclick="navigateToDetails('oily')">
+        <img src="./images/oily_skin.jpg" alt="Oily Skin" />
+        <p>Oily Skin</p>
+      </div>
+      <div class="block" onclick="navigateToDetails('dry')">
+        <img src="./images/dry_skin.jpg" alt="Dry Skin" />
+        <p>Dry Skin</p>
+      </div>
+      <div class="block" onclick="navigateToDetails('combination')">
+        <img src="./images/combination_skin.jpg" alt="Combination Skin" />
+        <p>Combination Skin</p>
+      </div>
+      <div class="block" onclick="navigateToDetails('sensitive')">
+        <img src="./images/sensitive_skin.jpg" alt="Sensitive Skin" />
+        <p>Sensitive Skin</p>
+      </div>
+      <div class="block" onclick="navigateToDetails('normal')">
+        <img src="./images/normal_skin.jpg" alt="Normal Skin" />
+        <p>Normal Skin</p>
+      </div>
+      <div class="block" onclick="navigateToDetails('acne')">
+        <img src="./images/acne_prone_skin.jpg" alt="Acne-Prone Skin" />
+        <p>Acne-Prone Skin</p>
+      </div>
+    </div>
+
+    <script>
+      function navigateToDetails(skinType) {
+        console.log("Navigating to: ${skinType}");
+        window.location.href = " details.html?type=${skinType}";
+      }
+    </script>
+  </body>
+</html>
